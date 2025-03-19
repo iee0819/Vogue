@@ -11,11 +11,16 @@ $(function () {
             $('.anchor a').removeClass('on')
             $('.anchor a').eq(idx - 1).addClass('on')
 
-            if (idx == 4 || idx == 5 || idx == 6) {
-                $('.header').addClass('on')
-            } else {
-                $('.header').removeClass('on')
+            // PC에서는 4,5,6페이지에 메뉴가 나오지말고 모바일에서는 나와라
+            let w = $(window).width();
+            if (w > 1200) {
+                if (idx == 4 || idx == 5 || idx == 6) {
+                    $('.header').addClass('on')
+                } else {
+                    $('.header').removeClass('on')
+                }
             }
+
         }
     })
 })
